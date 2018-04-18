@@ -1,0 +1,22 @@
+@mixin font-face($font-family, $font-name) {
+  @font-face {
+    font-family: $font-family;
+    src: url(#{$font-path}#{$font-name}.woff2) format('woff2'), url(#{$font-path}#{$font-name}.woff) format('woff'),
+    url(#{$font-path}#{$font-name}.tff) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@mixin active-highlight($radius) {
+  content: '';
+  position: absolute;
+  top: $hover-outline-width/-2;
+  right: $hover-outline-width/-2;
+  bottom: $hover-outline-width/-2;
+  left: $hover-outline-width/-2;
+  width: calc(100% + #{$hover-outline-width});
+  height: calc(100% + #{$hover-outline-width});
+  border-radius: $radius + $hover-outline-width/2;
+  background: rgba($black, 0.15);
+}

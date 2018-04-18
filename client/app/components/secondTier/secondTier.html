@@ -1,0 +1,43 @@
+<a href="/" class="sidebar-close"></a>
+<header role="banner" class="header child-header second-header">
+	<a href="/" class="close">Close</a>
+	<div class="inner">
+		<h1 class="page-heading heading-1">{{ data.pageTitle }}</h1>
+		<p ng-bind-html="data.pageSubtitle" class="page-subtitle heading-5"></p>
+	</div>
+</header>
+
+<main class="main second-main">
+	<div class="main-header">
+		<h1 class="page-heading heading-1">{{ data.pageTitle }}</h1>
+		<p ng-bind-html="data.pageSubtitle" class="page-subtitle heading-5"></p>
+	</div>
+
+	<div class="page-description {{ data.pageUrl }}">
+		<p ng-if="data.pageDescription" ng-bind-html="data.pageDescription" class="paragraph"></p>
+	</div>
+
+	<div class="multi-grid" ng-class="columnAmount()">
+		<div class="grid-item" ng-repeat="link in data.navLinks">
+			<a 
+				ng-if="link.pageComponent"
+				ui-sref="{{ link.pageComponent }}" 
+				class="tile-small {{ link.pageLogoClass }}" 
+				ng-class="{ 'tile-icon': link.pageLogoClass }">
+				<span class="tile-inner">{{ link.pageTitle }}</span>
+			</a>
+			
+			<a ng-if="!link.pageComponent"
+				href="{{ link.externalUrl }}" target="_blank" 
+				class="tile-small tile-external {{ link.pageLogoClass }}" 
+				ng-class="{ 'tile-image': link.pageLogoClass,  'tile-with-subtitle' : link.pageSubtitle }">
+				
+				<span class="tile-inner">{{ link.pageTitle }}</span>
+				<span ng-if="link.pageSubtitle" class="tile-subtitle">{{ link.pageSubtitle }}</span>
+				<i class="fa fa-external-link" aria-hidden="true"></i>
+			</a>
+		</div>	
+	</div>
+</main>
+
+<div class="child-page third-tier" ui-view id="third-tier-container"></div>

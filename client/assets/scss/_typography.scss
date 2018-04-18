@@ -1,0 +1,164 @@
+// Typography
+$font-size: 14px;
+$font-size-large: 16px;
+$line-height: 16px;
+$line-height-large: 24px;
+
+$h1-font-size: 32px;
+$h1-line-height: 36px;
+
+$h2-font-size: 24px;
+$h2-line-height: 28px;
+
+$h3-font-size: 20px;
+
+$h4-font-size: 18px;
+$h4-line-height: 20px;
+
+body,
+.type {
+	font-family: Graphik, Roboto, Helvetica, sans-serif;
+	font-size: $font-size;
+	line-height: $line-height;
+	color: $fletcher-grey;
+
+	letter-spacing: -0.02em;
+
+	@media(min-width: $bp-medium){
+		font-size: $font-size-large;
+		line-height: $line-height-large;
+	}
+}
+
+.heading {
+	@extend .type;
+	// font-weight: 700; // “Bold”
+	font-family: $graphik-bold;
+	text-transform: uppercase;
+
+	letter-spacing: 0;
+}
+
+.heading-1 {
+	@extend .heading;
+	// font-weight: 900; // “Black”
+	font-family: $graphik-black;
+
+	font-size: $h2-font-size;
+	line-height: $h2-line-height;
+
+	@media(min-width: $bp-medium){
+		font-size: $h1-font-size;
+		line-height: $h1-line-height;
+	}
+}
+
+.heading-2 {
+	@extend .heading-1;
+	font-size: 24px;
+	line-height: 28px;
+	@media(min-width: $bp-medium){
+		font-size: $h2-font-size;
+		line-height: $h2-line-height;
+	}
+}
+
+.heading-3 {
+	@extend .heading;
+	font-size: $h4-font-size;
+	@media(min-width: $bp-medium){
+		font-size: $h3-font-size;
+	}
+}
+
+.heading-4 {
+	@extend .heading;
+	font-size: 16px;
+	@media(min-width: $bp-medium){
+		font-size: $h4-font-size;
+		line-height: $h4-line-height;
+	}
+}
+
+.heading-5 {
+	@extend .heading-4;
+	font-size: 14px;
+	@media(min-width: $bp-medium){
+		font-size: 16px;
+	}
+}
+
+.heading-6 {
+	@extend .heading;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.heading-7 {
+	@extend .heading-6;
+	// font-weight: 600; // “Semibold”
+	font-family: $graphik-semibold;
+}
+
+.heading-8 {
+	@extend .heading-7;
+	font-size: 12px;
+}
+
+.paragraph {
+	@extend .type;
+	// font-weight: 300; // “Light”
+	font-family: $graphik-light;
+
+	// + * {
+	// 	margin-top: 12px;
+	// }
+}
+
+.paragraph-small {
+	@extend .paragraph;
+	font-size: $font-size;
+	line-height: $line-height;
+}
+
+.caption {
+	@extend .paragraph-small;
+	line-height: 16px;
+	margin-bottom: 8px;
+}
+
+.list { // Extend to <li>
+	@extend .type;
+	font-size: $font-size-large;
+	line-height: 20px;
+	margin-bottom: 20px;
+	font-family: $graphik-medium;
+}
+
+strong {
+	font-family: $graphik-bold;
+	letter-spacing: 0;
+}
+
+em {
+	font-family: $graphik-light-italic;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.link {
+	// font-weight: 500; // “Medium”
+	font-family: $graphik-medium;
+	color: $fletcher-orange;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+		color: darken($fletcher-orange, 10%);
+	}
+
+	&:active {
+		text-decoration: underline;
+		color: darken($fletcher-orange, 20%);
+	}
+}

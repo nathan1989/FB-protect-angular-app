@@ -1,0 +1,52 @@
+<div class="app {{$root.containerClass}}-active" dynamic-height>
+	<div class="language">
+		<p class="btn-language" ng-click="$root.langBox = !$root.langBox" ng-class="{'active' : $root.langBox}">
+			<span class="dropdown-flag {{ $root.currentLang }}">{{ $root.currentLang }}</span>
+		</p>
+		<ul class="dropdown-language" ng-class="{'open': $root.langBox}">
+			<li class="" ng-click="$root.changeLang('english')">
+				<span class="dropdown-flag english">english</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('chineseSimplified', 'chinese simplified');">
+				<span class="dropdown-flag chinese simplified">chinese simplified</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('chineseTraditional', 'chinese traditional')">
+				<span class="dropdown-flag chinese traditional">chinese traditional</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('finnish')">
+				<span class="dropdown-flag finnish">Finnish</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('frenchCanadian', 'french canadian')">
+				<span class="dropdown-flag french canadian">French Canadian</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('french')">
+				<span class="dropdown-flag french">French</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('german')">
+				<span class="dropdown-flag german">German</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('hungarian')">
+				<span class="dropdown-flag hungarian">hungarian</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('japanese')">
+				<span class="dropdown-flag japanese">japanese</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('malaysian')">
+				<span class="dropdown-flag malaysian">malaysian</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('polish')">
+				<span class="dropdown-flag polish">polish</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('spanish')">
+				<span class="dropdown-flag spanish">Spanish</span>
+			</li>
+		  	<li class="" ng-click="$root.changeLang('swedish')">
+				<span class="dropdown-flag swedish">swedish</span>
+			</li>
+		   	<li class="" ng-click="$root.changeLang('thai')"> 
+			 	<span class="dropdown-flag thai">Thai</span> 
+			</li> 
+		</ul>
+	</div>
+	<div ui-view></div>
+</div>

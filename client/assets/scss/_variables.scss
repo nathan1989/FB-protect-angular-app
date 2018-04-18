@@ -1,0 +1,36 @@
+// Variables
+
+// Colours
+$main-bg:   #eee;
+$fletcher-grey: #58595d;
+$fletcher-grey-50: #abacae;
+$fletcher-grey-90: #dedede;
+$white: #fff;
+$black: #000;
+$fletcher-orange: #d2741e;
+$fletcher-yellow: #eab90d;
+$fletcher-green: #88ab33;
+$fletcher-blue: #6bb9e7;
+
+$font-path: '/assets/fonts/';
+
+// Breakpoints
+$bp-small: 553px;
+$bp-medium: 1024px;
+$bp-large: 1280px;
+
+// Pages
+$max-width-small: 480px;
+
+// position of pages when child pages are active
+$page-left-offset: 10px;
+$page-left-offset-large: 20px;
+
+// position of child pages when open
+$child-page-offset: 24px;
+$child-page-offset-medium: 48px;
+$child-page-offset-large: 60px;
+
+$radius-large: 12px;
+$radius-small: $radius-large/2;
+

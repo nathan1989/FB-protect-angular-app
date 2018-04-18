@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans:700');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+@include font-face('Graphik Light', 'Graphik-Light');
+@include font-face('Graphik Black', 'Graphik-Black');
+@include font-face('Graphik Bold', 'Graphik-Bold');
+@include font-face('Graphik Light Italic', 'Graphik-LightItalic');
+@include font-face('Graphik Regular Italic', 'Graphik-RegularItalic');
+@include font-face('Graphik', 'Graphik-Regular');
+@include font-face('Graphik Medium', 'Graphik-Medium');
+@include font-face('Graphik Semibold', 'Graphik-Semibold');
+
+$graphik-light: 'Graphik';
+$graphik-black: 'Graphik Black';
+$graphik-bold: 'Graphik Bold';
+$graphik-light-italic: 'Graphik Regular Italic';
+$graphik: 'Graphik';
+$graphik-medium: 'Graphik Medium';
+$graphik-semibold: 'Graphik Semibold';
+

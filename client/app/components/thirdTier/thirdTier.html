@@ -1,0 +1,50 @@
+<a href="/{{ parentLink }}" class="sidebar-close"></a>
+<header role="banner" class="header child-header third-header">
+	<a href="/{{ parentLink }}" class="close">Close</a>
+	<div class="inner">
+		<h1 class="page-heading heading-1">{{ data.pageTitle }}</h1>
+		<p ng-bind-html="parentPageSubtitle" class="page-subtitle heading-5"></p>
+	</div>
+</header>
+
+<main class="main third-main" ng-class="{ 'golden-rules-child' : isGolden }">
+	<div class="main-header">
+		<h1 class="page-heading heading-1">{{ data.pageTitle }}</h1>
+		<p ng-bind-html="parentPageSubtitle" class="page-subtitle heading-5"></p>
+	</div>
+
+	<div class="page-description">
+		<div ng-if="isGolden" ng-include="'assets/img/icon_gr-' + data.pageLogoClass + '.svg'" class="golden-logo"></div>
+		<p ng-if="data.pageType !== 'search'" ng-bind-html="data.pageDescription" class="paragraph"></p>
+	</div>
+	
+	<div ng-if="!data.pageType" class="multi-grid two-columns" ng-class="columnType()">
+		<div class="grid-item" ng-repeat="link in data.navLinks">
+			<span ng-if="$index == 1 && isGolden" class="golden-helper">{{ pageHelper }}</span>
+			<a href="{{ link.externalUrl }}" target="_blank" class="tile-small tile-external"><span class="tile-inner">{{ link.pageTitle }}</span><i class="fa fa-external-link" aria-hidden="true"></i></a>
+		</div>
+	</div>
+
+	<div ng-if="data.pageType" ng-class="{'search-section': data.pageType === 'search'}">
+		<div ng-if="data.pageType === 'search'" class="search-wrap">
+			<input type="text" placeholder="QUICK SEARCH" ng-model="data.search" class="quick-search" ng-change="change()"
+      ng-blur="change()">
+			<span class="search-icon"></span>
+			<span class="search-reset" ng-show="data.search" ng-tap="data.search = ''" ng-click="data.search = ''"></span>
+		</div>
+
+		<div ng-repeat="item in data.navLinks" class="search-list" ng-class="searchType()" ng-hide="filtered.length === 0">
+			<p class="heading search-heading" ng-click="toggleSearchList($event)">{{ item.navListName }} <span>({{ filtered.length }})</span></p>
+			<ul ng-class="{'multi-grid three-columns' : data.pageType === 'list'}">
+				<li ng-repeat="link in item.navLinks | filter: data.search as filtered" class="search-item" ng-class="{'grid-item' : data.pageType === 'list'}">
+					<a href="{{ link.externalUrl }}" target="_blank" ng-if="data.pageType === 'search'" class="link">{{ link.pageTitle }}<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+					<span ng-if="data.pageType === 'list'" class="list">{{ link.pageTitle }}</span>
+				</li>
+			</ul>
+		</div>
+
+		<em ng-if="filteredData.length === 0" ng-show="data.search">Your search term did not match any results.</em>
+
+    <button ng-show="data.search" class="btn btn-normal btn-block" ng-tap="data.search = ''" ng-click="data.search = ''">Clear search</button> 
+	</div>
+</main>

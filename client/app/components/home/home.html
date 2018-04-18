@@ -1,0 +1,70 @@
+<header role="banner" class="header home-header">
+  <div class="inner">
+    <h1><a ui-sref="home" class="logo">Protect - our people, our way</a></h1>
+  </div>
+</header>
+<main role="main" class="main home-main">
+  <div class="grid">
+    <div class="third">
+      <h4 ng-repeat="link in data.navLinks" ng-if="$index == 0" class="main-heading heading-5">{{ link.pageTitle }}</h4>
+      <a ng-repeat="link in data.pages" ui-sref="{{ link.pageComponent }}" class="tile-standard tile-home {{ link.pageUrl }}" ng-if="$index < 3">
+        <span class="home-icon"></span>
+        <h2>{{ link.pageTitle }}</h2>
+        <span ng-bind-html="link.pageSubtitle" class="tile-subtitle"></span>
+      </a>
+    </div>
+    <div class="third">
+      <h4 ng-repeat="link in data.navLinks" ng-if="$index == 1" class="main-heading heading-5">{{ link.pageTitle }}</h4>
+
+      <div class="layers">
+        <ul class="layer layer-top">
+          <li ng-repeat="link in data.pageLinks.innerLinks">
+            <a ng-click="modalOpen(link.pageComponent)">{{ link.pageTitle }}</a>
+          </li>
+        </ul>
+
+        <ul class="layer layer-bottom">
+          <li ng-repeat="link in data.pageLinks.outerLinks">
+            <span ng-click="modalOpen(link.pageComponent)" class="arc-text" ng-bind-html="link.pageTitle | spanSplit"></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brand-logo" ng-click="modalOpen(data.logoLink.pageComponent)">
+        <img src="assets/img/brand_logo-type.svg" alt="Protect" width="250" height="97">
+        <div class="brand-corners">
+          <span class="brand-corners-each brand-corners-tl"></span>
+          <span class="brand-corners-each brand-corners-tr"></span>
+          <span class="brand-corners-each brand-corners-bl"></span>
+          <span class="brand-corners-each brand-corners-br"></span>
+        </div>
+      </div>
+    </div>
+    <div class="third">
+      <h4 ng-repeat="link in data.navLinks" ng-if="$index == 2" class="main-heading heading-5">{{ link.pageTitle }}</h4>
+      <a ng-repeat="link in data.pages" ui-sref="{{ link.pageComponent }}" class="tile-standard tile-home {{ link.pageUrl }}" ng-if="$index >= 3">
+        <span class="home-icon"></span>
+        <h2>{{ link.pageTitle }}</h2>
+        <span ng-bind-html="link.pageSubtitle" class="tile-subtitle"></span>
+      </a>
+
+    </div>
+  </div>
+</main>
+
+<div class="modal" data-modal>
+  <div class="modal-content">
+    <a href="#" ng-click="modalClose()" class="modal-close"><span class="modal-close-icon">Close</span></a>
+    <h2 class="heading-1 modal-heading">{{ modal.pageTitle }}</h2>
+    <p ng-bind-html="modal.pageSubtitle"></p>
+
+    <ul class="modal-list">
+      <li ng-repeat="link in modal.navLinks">
+        <a ng-if="link.externalUrl" href="{{link.externalUrl}}" target="_blank" class="tile-small tile-external"><span class="tile-inner">{{ link.pageTitle }}</span><i class="fa fa-external-link" aria-hidden="true"></i></a>
+        <span ng-if="!link.externalUrl" class="modal-list-item">{{ link.pageTitle }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div ui-view class="child-page second-tier" id="second-tier-container"></div>

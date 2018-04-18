@@ -1,0 +1,95 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100%;
+  background-color: $main-bg;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  -webkit-backface-visibility: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  font-size: inherit;
+  height: 100%;
+
+  @media(min-width: $bp-small){
+    overflow-x: hidden;
+  }
+}
+
+header, main, section, article, footer {
+  display: block;
+}
+
+*:focus {
+  outline: 0;
+}
+
+.app {
+  height: 100%;
+  position: relative; // needed for positioned child pages
+}
+
+.inner {
+  max-width: $bp-large;
+  margin: auto;
+}
+
+.header {
+  background: $fletcher-orange url(../assets/img/image_brand-collage@2x.jpg) center center;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+
+  .inner {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    padding: 15px;
+    height: 105px;
+
+    @media(min-width: $bp-medium){
+      height: 116px;
+    }
+  }
+
+  [class*="heading"] {
+    color: white;
+  }
+}
+
+.main {
+  padding: 42px 24px 43px;
+  max-width: calc(#{$max-width-small} + 48px);
+  position: relative;
+  margin: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow-x: hidden;
+
+  @media(min-width: $bp-small){
+    overflow-x: visible;
+  }
+
+  @media(min-width: $bp-medium){
+    padding-top: 30px;
+    max-width: calc(#{$bp-large} + 100px);
+  }
+}

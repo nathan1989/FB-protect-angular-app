@@ -1,0 +1,29 @@
+.btn {
+  border: 0;
+  color: $white;
+  background: $fletcher-grey;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 40px;
+  padding: 0 18px;
+  
+  position: relative;
+
+  &:hover { 
+    background: darken($fletcher-grey, 10%);
+    cursor: pointer;
+  }
+  &:active:after {
+    @include active-highlight($radius-small);
+  }
+}
+
+.btn-normal {
+  margin-top: 43px;
+}
+
+.btn-block {
+  display: block;
+}
